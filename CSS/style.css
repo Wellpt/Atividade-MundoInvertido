@@ -21,11 +21,11 @@
     --header-background-color: #e3e3e3;
     --highlight-color: #000000;
     --featured-font-family: "Archivo", sans-serif;
-    --character-top-image-src: url("./assets/images/characters/kids-on-the-bike");
+    --character-top-image-src: url("../assets/images/characters/kids-on-the-bike.svg");
     --character-top-image-color: #ffffff;
-    --character-bottom-image-src: url("./assets/images/characters/inverted-world-monster");
+    --character-bottom-image-src: url("../assets/images/characters/inverted-world-monster.svg");
     --character-bottom-image-color: #e5e5e5;
-    --background-lamp-image: url("./assets/images/backgrounds/lamps-inverted");
+    --background-lamp-image: url("../assets/images/backgrounds/lamps-inverted");
     --footer-background-color: #b5bbbf;
   }
   
@@ -39,11 +39,11 @@
     --header-background-color: #220f0f;
     --highlight-color: #ffffff;
     --featured-font-family: "Rubik Glitch", sans-serif;
-    --character-bottom-image-src: url("./assets/images/characters/kids-on-the-bike");
+    --character-bottom-image-src: url("../assets/images/characters/kids-on-the-bike");
     --character-bottom-image-color: rgba(255, 255, 255, 0.1);
-    --character-top-image-src: url("./assets/images/characters/inverted-world-monster");
+    --character-top-image-src: url("../assets/images/characters/inverted-world-monster.svg");
     --character-top-image-color: #000;
-    --background-lamp-image: url("./assets/images/backgrounds/lamps-inverted");
+    --background-lamp-image: url("../assets/images/backgrounds/lamps-inverted");
     --footer-background-color: #000;
   }
 
@@ -83,4 +83,118 @@
 
 header {
     background-color: var(--header-background-color);
+    min-height: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+header::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(../assets/images/banner/florest.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 90%;
+    filter: saturate(0) /* isso tira cor da imagem */
+    opacity(0.2);
+}
+
+.header-content {
+    max-width: 700px;
+    padding: 80px 20px;
+    text-align: center;
+    z-index: 2;
+}
+.header-content img {
+    width: 80%;
+}
+.header-content p {
+    margin: 30px 0 50px;
+}
+.header-content button {
+    border: 3px solid var(--primary-color);
+    color: var(--primary-color);
+}
+.header-content button:hover {
+    background-color: var(--primary-color);
+    color: var(--primary-color-contrast);
+}
+
+/* Estilos Personagens */ 
+
+.world-charecters {
+    width: 100%;
+    max-width: 900%;
+    position: absolute;
+}
+.world-charecters#top-characters {
+    height: 100%;
+    background-color: var(--character-top-image-color);
+    bottom: -3px;
+    mask: var(--character-top-image-src) bottom / 100% no-repeat;
+    -webkit-mask: var(--character-top-image-src) bottom / 100% no-repeat;
+}
+
+.world-charecters#bottom-characters {
+    height: 500px;
+    background-color: var(--character-bottom-image-color);
+    top: 3px;
+    transform: rotateZ(180deg) scaleX(-1);
+    position: relative;
+
+    mask: var(--character-bottom-image-src) bottom / contain no-repeat;
+    -webkit-mask: var(--character-bottom-image-src) bottom / 100% no-repeat;
+}
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Estilos da 1° Sections */
+
+  section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 95px;
+  }
+.container {
+    max-width: 1200px;
+}
+#section-inverted-world {
+    align-items: center;
+}
+#section-inverted-world .section-texts {
+    width: 50%;
+}
+#section-inverted-world .section-texts h2 {
+    max-width: 300px;
+}
+
+/* Estilos da 2° Sections */
+
+#section-stranger-things-traler .section-texts {
+    width: 50%;
+    text-align: right;
+}
+#section-stranger-things-traler .section-texts h2 {
+    max-width: 425px;
+    display: inline-block;
+}
+#section-stranger-things-trailer .video-frame {
+    background-color: var(--primary-color);
+    margin-right: 100px;
+}
+
+#section-stranger-things-trailer .video-frame iframe {
+    position: relative;
+    bottom: 24px;
+    left: 24px;
+    border: 2px solid;
+    border-image: linear-gradient(var(--primary-color), var(--primary-color-contrast));
+    border-image-slice: 10;
+  }
