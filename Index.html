@@ -9,13 +9,13 @@
     <title>Mundo Invertido</title>
 </head>
 
-<body class="light-theme" aria-label="O site esta utilizando tema light" role="body">
+<body class="dark-theme" aria-label="O site esta utilizando tema light" role="body">
     <header aria-label="Cabeçalho da página.">
         <audio id="music" autoplay>
             <source src="./assets/musics/normal-world.mpeg" aria-details="Audio do site">
         </audio>
         <div class="header-content">
-            <img src="invert-element" src="./assets/images/banner/logo.svg" alt="imagem principal">
+            <img class="invert-element" src="./assets/images/banner/logo.svg" alt="imagem principal">
             <p class="invert-element" role="text">
                 Uma jornada para quem nao tem medo do desconhecido. O caminho para o Mundo invertido e incerto, repleto
                 de obstáculos e perigos. Porem, a recompensa e grande: salvar Hawkings e o mundo todo das garras de
@@ -62,7 +62,7 @@
                     </p>
                 </div>
         </section>
-        <section id="section-stranger-things-trailer">
+        <section id="section-stranger-things-gallery">
             <div class="container section-text">
                 <h2>A segunda série mais assistida da Netflix</h2>
                 <ul class="gallery-container" role="gallery">
@@ -81,7 +81,11 @@
         <section id="section-form" class="container">
             <h2>O clube Dungeons & Dragons</h2>
             <p>
-                Para deter vecna
+                Para deter Vecna, os heróis de Stranger Things também precisam de
+                você. O Clube de D&D mais famoso de Hawkings está com vagas abertas
+                para sua próxima aventura. Se você é destemido, gosta de desafios e
+                não tem medo de rodar o D20, chegou a hora de se inscrever para fazer
+                parte da nova campanha.
             </p>
             <div class="form-content">
                 <h3>Entre para o clube de D&D e tenha experiencia de <span>outro mundo</span></h3>
@@ -112,10 +116,34 @@
     </main>
     <footer>
         <p>
-            Projeto construído para fins didaticos
+            Projeto construído para fins didáticos, com o objetivo de colocar em
+            prática os conhecimentos de HTML, CSS e JavaScript aprendidos na DIO._
         </p>
         <img src="./assets/images/footer/logo.svg" alt="">
     </footer>
+    <script type="module" src="assets/js/main.js"></script>
+    <script>
+
+        window.addEventListener('click', function() {
+            const audio = document.querySelector('#music');
+            audio.play();
+            audio.volume = 0.2;
+        })
+
+
+        function switchTreme() {
+            document.body.classList.toggle('dark-theme');
+            document.body.classList.toggle('light-theme');
+
+            const theme = document.body.classList[0];
+            const music = theme === 'light-theme' ? 'normal-world.mpeg' : 'inverted-world.mpeg'
+
+            const audio = document.querySelector('#music');
+            audio.src = `assets/music/${music}`;
+            audio.play();
+            audio.volume = 0.2;
+        }
+    </script>
 </body>
 
 </html>
